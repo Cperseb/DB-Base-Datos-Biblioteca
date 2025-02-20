@@ -13,12 +13,13 @@ CREATE TABLE Documentos (
     Materia VARCHAR(25)
 );
 CREATE TABLE Prestamos (
-    IdPrestamo INT PRIMARY KEY AUTO_INCREMENT,
+    IdPrestamo INT AUTO_INCREMENT PRIMARY KEY,
     IdUsuario INT,
-    IdEjemplar VARCHAR(4),
+    IdEjemplar INT,
     FechaP DATE,
     FechaD DATE,
     Observacion TEXT,
+    estado boolean default false,
     FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
     FOREIGN KEY (IdEjemplar) REFERENCES Ejemplares(IdEjemplar)
 );
