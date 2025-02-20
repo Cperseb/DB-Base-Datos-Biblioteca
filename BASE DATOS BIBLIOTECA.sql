@@ -95,7 +95,17 @@ INSERT INTO Documentos (Titulo, ISBN, ListaAutores, FechaPublicacion, NumPaginas
 ('Time', '978-1-40-289462-3', 'Varios', '2023-01-15', 80, 5, 'Revista de noticias', 'Actualidad'),
 ('Science', '978-0-12-345678-9', 'Varios', '2023-02-01', 120, 8, 'Revista científica', 'Ciencia'),
 ('Hola', '978-9-87-654321-0', 'Varios', '2023-02-15', 60, 12, 'Revista del corazón', 'Entretenimiento'),
-('The Economist', '978-0-19-852663-6', 'Varios', '2023-03-01', 90, 7, 'Revista de economía', 'Economía');
+('The Economist', '978-0-19-852663-6', 'Varios', '2023-03-01', 90, 7, 'Revista de economía', 'Economía'),
+('El Señor de los Anillos', '978-0-618-12911-3', 'J.R.R. Tolkien', '1954-07-29', 1178, 10, 'Aventura épica', 'Fantasía'),
+('Interestelar', '978-0-7475-8103-6', 'Christopher Nolan', '2014-11-07', 169, 15, 'Ciencia ficción', 'Ciencia Ficción'),
+('Origen', '978-0-7475-9983-3', 'Christopher Nolan', '2010-07-16', 148, 12, 'Ciencia ficción', 'Ciencia Ficción'),
+('La La Land', '978-1-4711-5825-3', 'Damien Chazelle', '2016-12-09', 128, 10, 'Musical', 'Musical'),
+('Coco', '978-1-4847-8172-8', 'Lee Unkrich', '2017-11-22', 105, 15, 'Animación', 'Animación'),
+('Los Vengadores', '978-0-7851-6844-9', 'Joss Whedon', '2012-05-04', 143, 20, 'Superhéroes', 'Acción'),
+('El Padrino', '978-0-451-20857-4', 'Francis Ford Coppola', '1972-03-24', 175, 8, 'Drama criminal', 'Drama'),
+('Casablanca', '978-0-7888-2947-9', 'Michael Curtiz', '1942-11-26', 102, 5, 'Drama romántico', 'Drama'),
+('Ciudadano Kane', '978-0-7888-2949-3', 'Orson Welles', '1941-09-05', 119, 7, 'Drama', 'Drama'),
+('Cantando bajo la lluvia', '978-0-7928-5847-1', 'Stanley Donen', '1952-04-11', 103, 9, 'Musical', 'Musical');
 
 INSERT INTO Libros (Titulo) VALUES
 ('El Quijote'),
@@ -121,7 +131,17 @@ INSERT INTO Ejemplares (Titulo, Localizacion, Prestado) VALUES
 ('Time', 'Estante R2', TRUE),
 ('Science', 'Estante R3', FALSE),
 ('Hola', 'Estante R4', FALSE),
-('The Economist', 'Estante R5', TRUE);
+('The Economist', 'Estante R5', TRUE),
+('El Señor de los Anillos', 'Estante M1', FALSE),
+('Interestelar', 'Estante M2', TRUE),
+('Origen', 'Estante M3', FALSE),
+('La La Land', 'Estante M4', FALSE),
+('Coco', 'Estante M5', TRUE),
+('Los Vengadores', 'Estante M6', FALSE),
+('El Padrino', 'Estante M7', FALSE),
+('Casablanca', 'Estante M8', TRUE),
+('Ciudadano Kane', 'Estante M9', FALSE),
+('Cantando bajo la lluvia', 'Estante M10', TRUE);
 
 INSERT INTO Prestamos (IdUsuario, IdEjemplar, FechaP, FechaD, Observacion) VALUES
 (1, 1, '2024-02-01', '2024-02-15', 'En buen estado'),
