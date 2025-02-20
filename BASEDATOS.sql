@@ -51,7 +51,17 @@ INSERT INTO Ejemplares (Titulo, Localizacion, Prestado) VALUES
 ('Time', 'Estante R2', TRUE),
 ('Science', 'Estante R3', FALSE),
 ('Hola', 'Estante R4', FALSE),
-('The Economist', 'Estante R5', TRUE);
+('The Economist', 'Estante R5', TRUE),
+('El Señor de los Anillos', 'Estante M1', FALSE),
+('Interestelar', 'Estante M2', TRUE),
+('Origen', 'Estante M3', FALSE),
+('La La Land', 'Estante M4', FALSE),
+('Coco', 'Estante M5', TRUE),
+('Los Vengadores', 'Estante M6', FALSE),
+('El Padrino', 'Estante M7', FALSE),
+('Casablanca', 'Estante M8', TRUE),
+('Ciudadano Kane', 'Estante M9', FALSE),
+('Cantando bajo la lluvia', 'Estante M10', TRUE);
 
 INSERT INTO Revistas (Titulo, Frecuencia) VALUES
 ('National Geographic', 'Semanal'),
