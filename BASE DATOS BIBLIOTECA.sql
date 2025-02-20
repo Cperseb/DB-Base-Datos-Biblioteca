@@ -70,6 +70,7 @@ CREATE TABLE Prestamos (
     FechaP DATE,
     FechaD DATE,
     Observacion TEXT,
+    estado boolean default false,
     FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
     FOREIGN KEY (IdEjemplar) REFERENCES Ejemplares(IdEjemplar)
 );
