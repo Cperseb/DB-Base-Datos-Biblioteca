@@ -3,7 +3,7 @@ CREATE TABLE Usuarios (
     Nombre VARCHAR(50) NOT NULL,
     Direccion VARCHAR(50),
     Telefono VARCHAR(9),
-    Curso INT(1),
+    Curso INT(1)not null,
     Email VARCHAR(50) UNIQUE,
     Clave VARCHAR(8) NOT NULL,
     Admin BOOLEAN DEFAULT FALSE
@@ -19,8 +19,9 @@ CREATE TABLE Ejemplares (
 
 
 CREATE TABLE Revistas (
+    ISBN varchar(20)unique,
+    frecuencia ENUM('diario', 'semanal', 'mensual', 'anual') NOT NULL,
     Titulo VARCHAR(50) PRIMARY KEY,
-    Frecuencia VARCHAR(50),
     FOREIGN KEY (Titulo) REFERENCES Documentos(Titulo) ON DELETE CASCADE
 );
 
@@ -37,8 +38,8 @@ INSERT INTO Usuarios (Nombre, Direccion, Telefono, Curso, Email, Clave, Admin) V
 ('Sofía Gómez', 'Plaza Mayor 5, Valencia', '634567890', 3, 'sofia.gomez@email.com', 'sofia789', FALSE),
 ('Javier Ramírez', 'Calle Sol 23, Sevilla', '645678901', 1, 'javier.ramirez@email.com', 'javier10', FALSE),
 ('Elena Torres', 'Paseo del Río 7, Bilbao', '656789012', 2, 'elena.torres@email.com', 'elena202', FALSE),
-('Admin 1', 'N/A', 'N/A', NULL, 'admin1@email.com', 'admin1', TRUE),
-('Admin 2', 'N/A', 'N/A', NULL, 'admin2@email.com', 'admin2', TRUE);
+('Admin 1', 'N/A', 'N/A', 0, 'admin1@email.com', 'admin1', TRUE),
+('Admin 2', 'N/A', 'N/A', 0, 'admin2@email.com', 'admin2', TRUE);
 
 
 INSERT INTO Ejemplares (Titulo, Localizacion, Prestado) VALUES
@@ -51,24 +52,14 @@ INSERT INTO Ejemplares (Titulo, Localizacion, Prestado) VALUES
 ('Time', 'Estante R2', TRUE),
 ('Science', 'Estante R3', FALSE),
 ('Hola', 'Estante R4', FALSE),
-('The Economist', 'Estante R5', TRUE),
-('El Señor de los Anillos', 'Estante M1', FALSE),
-('Interestelar', 'Estante M2', TRUE),
-('Origen', 'Estante M3', FALSE),
-('La La Land', 'Estante M4', FALSE),
-('Coco', 'Estante M5', TRUE),
-('Los Vengadores', 'Estante M6', FALSE),
-('El Padrino', 'Estante M7', FALSE),
-('Casablanca', 'Estante M8', TRUE),
-('Ciudadano Kane', 'Estante M9', FALSE),
-('Cantando bajo la lluvia', 'Estante M10', TRUE);
+('The Economist', 'Estante R5', TRUE);
 
-INSERT INTO Revistas (Titulo, Frecuencia) VALUES
-('National Geographic', 'Semanal'),
-('Time', 'Mensual'),
-('Science', 'Bimestral'),
-('Hola', 'Trimestral'),
-('The Economist', 'Anual');
+INSERT INTO Revistas (Titulo, ISBN, Frecuencia) VALUES
+('National Geographic', '978-3-16-148410-0', 'semanal'),
+('Time', '978-1-40-289462-3', 'mensual'),
+('Science', '978-0-12-345678-9', 'mensual'),
+('Hola', '978-9-87-654321-0', 'mensual'),
+('The Economist', '978-0-19-852663-6', 'anual');
 
 INSERT INTO Multimedia (Titulo, Soporte) VALUES
 ('El Señor de los Anillos', 'DVD'),
