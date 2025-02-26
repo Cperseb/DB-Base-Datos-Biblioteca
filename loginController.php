@@ -22,9 +22,8 @@ class LoginController {
     public function login($usuario, $clave) {
         // Verificamos si el usuario o la clave están vacíos
         if (empty($usuario) || empty($clave)) {
-            // Retornamos un error si alguno está vacío
             $error = "El usuario y la clave son obligatorios.";
-            include '../views/login.php'; // Mostramos el formulario de login con el error
+            include '../views/login.php';
             return;
         }
 
@@ -35,35 +34,26 @@ class LoginController {
         $condicion = "nombre = ? AND clave = ?";
         $result = $query->select('usuarios', $condicion, [$usuario, $clave]);
 
-        if ($result) {
-            // Si encontramos el usuario, verificamos si la contraseña es correcta
-            $usuarioEncontrado = $result[0]; // Tomamos el primer resultado de la consulta
-            if ($usuarioEncontrado['clave'] === $clave) {
-                // Si la clave es correcta, verificamos si el usuario es administrador
-                $esAdmin = $query->adminUsuario($usuario, $clave);
-                
-                if ($esAdmin) {
-                    // Si el usuario es administrador, redirigimos a la página de administración
-                    $_SESSION['usuario'] = $usuario;
-                    $_SESSION['admin'] = true;
-                    header('Location: ../views/panelAdministrador.php');
-                    exit();
-                } else {
-                    // Si no es administrador, lo redirigimos a la página de usuario normal
-                    $_SESSION['usuario'] = $usuario;
-                    $_SESSION['admin'] = false;
-                    header('Location: ../views/panelUsuario.php');
-                    exit();
-                }
+        if ($result && !empty($result)) {
+            // Si encontramos el usuario, ya no necesitamos verificar la contraseña de nuevo
+            // porque la consulta SQL ya lo hizo
+            $esAdmin = $query->adminUsuario($usuario, $clave);
+            
+            // Guardamos la información en la sesión
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['admin'] = $esAdmin;
+            
+            // Redirigimos según el tipo de usuario
+            if ($esAdmin) {
+                header('Location: ../views/panelAdministrador.php');
             } else {
-                // Si la contraseña es incorrecta, mostramos un error y dejamos el campo de contraseña vacío
-                $error = "Contraseña incorrecta.";
-                include '../views/login.php'; // Volvemos a mostrar el login con el error
+                header('Location: ../views/panelUsuario.php');
             }
+            exit();
         } else {
-            // Si el usuario no existe en la base de datos, mostramos un error
-            $error = "El usuario no existe.";
-            include '../views/login.php'; // Mostramos el formulario de login con el error
+            // Si no encontramos resultados, mostramos un error genérico
+            $error = "Usuario o contraseña incorrectos.";
+            include '../views/login.php';
         }
     }
 }
