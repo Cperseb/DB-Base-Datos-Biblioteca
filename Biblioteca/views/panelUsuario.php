@@ -33,6 +33,9 @@ if (!$usuario || $usuario['Admin']) {
                 <a href="listarLibros.php">
                     <button class="action-button">Consultar Libros</button>
                 </a>
+                <a href="registrarPrestamos.php">
+                    <button class="action-button">Registrar Libros</button>
+                </a>
             </div>
         </div>
         <div class="logout-section">
