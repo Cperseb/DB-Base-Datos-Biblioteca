@@ -68,5 +68,47 @@ class LibrosController {
             return "<p>Error al obtener los libros: " . $e->getMessage() . "</p>";
         }
     }
+
+    public function registrarPrestamo($usuarioId, $idPrestamo) {
+        try {
+            // Comprobar existencias del ejemplar
+            $sqlExistencias = "SELECT numeroPagina FROM Libros WHERE IdPrestamo = :idPrestamo";
+            $stmtExistencias = $this->conexion->prepare($sqlExistencias);
+            $stmtExistencias->bindParam(":idPrestamo", $idPrestamo, PDO::PARAM_STR);
+            $stmtExistencias->execute();
+            $existencias = $stmtExistencias->fetchColumn();
+
+            if ($existencias <= 0) {
+                return "<p>No hay ejemplares disponibles para el préstamo.</p>";
+            }
+
+            // Comprobar máximo préstamos en vigor del usuario
+            $sqlPrestamos = "SELECT COUNT(*) FROM Prestamos WHERE IdUsuario = :usuarioId AND estado = 1";
+            $stmtPrestamos = $this->conexion->prepare($sqlPrestamos);
+            $stmtPrestamos->bindParam(":usuarioId", $usuarioId, PDO::PARAM_INT);
+            $stmtPrestamos->execute();
+            $prestamosActivos = $stmtPrestamos->fetchColumn();
+
+            if ($prestamosActivos >= 6) {
+                return "<p>El usuario ya tiene el máximo de 6 préstamos activos.</p>";
+            }
+
+            // Calcular fecha de devolución (3 semanas)
+            $fechaDevolucion = date('Y-m-d', strtotime('+3 weeks'));
+
+            // Registrar el préstamo
+            $sqlRegistrar = "INSERT INTO Prestamos (IdUsuario, IdPrestamo, Fechafin) VALUES (:usuarioId, :idPrestamo, :fechaDevolucion)";
+            $stmtRegistrar = $this->conexion->prepare($sqlRegistrar);
+            $stmtRegistrar->bindParam(":usuarioId", $usuarioId, PDO::PARAM_INT);
+            $stmtRegistrar->bindParam(":idPrestamo", $idPrestamo, PDO::PARAM_STR);
+            $stmtRegistrar->bindParam(":fechaDevolucion", $fechaDevolucion, PDO::PARAM_STR);
+            $stmtRegistrar->execute();
+
+            return "<p>Préstamo registrado con éxito. Fecha de devolución: $fechaDevolucion</p>";
+
+        } catch (PDOException $e) {
+            return "<p>Error al registrar el préstamo: " . $e->getMessage() . "</p>";
+        }
+    }
 }
 ?>
