@@ -1,0 +1,147 @@
+/* Estilos generales */
+body {
+    background-color: #2c2c2c;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+.container {
+
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #3c3c3c;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Formulario de búsqueda */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #888;
+    background-color: #222;
+    color: white;
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para la tabla de documentos */
+.tabla-documentos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tabla-documentos th, .tabla-documentos td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #666;
+}
+
+.tabla-documentos th {
+    background-color: #222;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.tabla-documentos tr:nth-child(even) {
+    background-color: #555;
+}
+
+.tabla-documentos tr:hover {
+    background-color: #666;
+}
+
+/* Botón para ver detalles */
+.btn-detalles {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #FFD700;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-detalles:hover {
+    background-color: #FFC107;
+}
+
+/* Estilos para los detalles del documento */
+h2, h3 {
+    margin-top: 20px;
+    color: #FFD700;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 8px;
+    background-color: #444;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Mensajes de error y avisos */
+.mensaje-error {
+    color: red;
+    font-weight: bold;
+}
+
+.mensaje-aviso {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Botón de volver */
+.volver-btn-container {
+    margin-top: 20px;
+}
+
+.volver-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.volver-btn:hover {
+    background-color: #45a049;
+}
