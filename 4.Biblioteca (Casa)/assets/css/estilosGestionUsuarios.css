@@ -1,0 +1,125 @@
+/* Estilos generales */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Encabezados */
+h1, h2 {
+    color: #FFD700;
+}
+
+/* Formulario */
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 90%;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #222;
+    color: white;
+    text-align: center;
+}
+
+/* Botones */
+button {
+    padding: 8px 12px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Botones especiales */
+button[name="sancionar"] {
+    background: #FF8C00;
+}
+
+button[name="sancionar"]:hover {
+    background: #e67e00;
+}
+
+button[name="eliminar"] {
+    background: #FF4C4C;
+}
+
+button[name="eliminar"]:hover {
+    background: #e60000;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #2c2c2c;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+table th {
+    background-color: #222;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #333;
+}
+
+table tr:hover {
+    background-color: #444;
+}
+
+/* Mensajes */
+.mensaje {
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* Botón de volver */
+.volver-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.volver-btn:hover {
+    background-color: #45a049;
+}

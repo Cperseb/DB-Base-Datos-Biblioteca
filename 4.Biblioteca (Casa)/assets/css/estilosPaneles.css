@@ -1,0 +1,84 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fondo oscuro */
+    color: white; /* Texto blanco para contraste */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Para evitar barras de desplazamiento */
+}
+
+.container {
+    background-color: #1e1e1e; /* Fondo del contenedor */
+    border-radius: 8px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px; /* El contenedor será más pequeño, centrado y con un máximo de 500px */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Sombra suave para el contenedor */
+    text-align: center;
+}
+
+.panel-header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre los botones */
+    margin-bottom: 30px;
+}
+
+.button-item {
+    width: 100%; /* Aseguramos que los botones no se desborden */
+}
+
+.action-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Aumento al pasar el ratón */
+}
+
+.logout-section {
+    margin-top: 20px;
+}
+
+.logout-btn {
+    background-color: #FF4C4C;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #e60000;
+    transform: scale(1.05); /* Aumento al pasar el ratón */
+}
